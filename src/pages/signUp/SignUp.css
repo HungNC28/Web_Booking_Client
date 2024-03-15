@@ -1,0 +1,42 @@
+.containerSignUp {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.headerSignUp {
+  padding-inline: 15%;
+  background-color: #003580;
+}
+
+.cardSignUp {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  padding: 1rem;
+  text-align: center;
+  width: 20rem;
+}
+
+.formSignUp {
+  display: grid;
+  gap: 1rem;
+  margin-block: 2rem;
+}
+
+.inputSignUp {
+  padding: 0.5rem 1rem;
+  border: 1px solid lightgray;
+  outline: none;
+}
+
+.btnSignUp {
+  background-color: #0f71c2;
+  color: #fff;
+  padding-block: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
