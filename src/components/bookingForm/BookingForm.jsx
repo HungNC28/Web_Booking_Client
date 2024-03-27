@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import BookingInfor from "./BookingInfor";
+import { BASE_URL } from "../../utils/const";
 
 const BookingForm = () => {
     const { hotelId } = useParams();
@@ -23,7 +24,7 @@ const BookingForm = () => {
 
     const navigate = useNavigate();
     const reserveClick = () => {
-        fetch("http://localhost:5000/api/transactions/add", {
+        fetch(`${BASE_URL}/transactions/add`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -61,7 +62,7 @@ const BookingForm = () => {
         setDate([item.selection]);
         if (date) {
             const respone = await fetch(
-                `http://localhost:5000/api/rooms/room-available/${hotelId}`,
+                `${BASE_URL}/rooms/room-available/${hotelId}`,
                 {
                     method: "POST",
                     headers: {

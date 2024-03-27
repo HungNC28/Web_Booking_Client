@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { BASE_URL } from "../../utils/const";
 
 const Hotel = () => {
     const [slideNumber, setSlideNumber] = useState(0);
@@ -21,7 +22,7 @@ const Hotel = () => {
     const [data, setData] = useState([]);
     const { hotelId } = useParams();
 
-    const url = `http://localhost:5000/api/hotels/${hotelId}`;
+    const url = `${BASE_URL}/hotels/${hotelId}`;
     // const data = useFetch(url);
 
     useEffect(() => {

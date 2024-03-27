@@ -2,6 +2,7 @@ import "./Login.css";
 import Navbar from "../../components/navbar/Navbar";
 import { Form, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { BASE_URL } from "../../utils/const";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -12,16 +13,13 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch(
-                "http://localhost:5000/api/user/login",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ username, password }),
-                }
-            );
+            const response = await fetch(`${BASE_URL}/user/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, password }),
+            });
 
             if (response.status === 401) {
                 alert("Password or username is not correct");

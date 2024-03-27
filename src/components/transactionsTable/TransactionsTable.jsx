@@ -1,5 +1,6 @@
 import "./TransactionsTable.css";
 import { useState, useEffect } from "react";
+import { BASE_URL } from "../../utils/const";
 
 const TransactionsTable = () => {
     const [transactions, setTransactions] = useState([]);
@@ -10,7 +11,7 @@ const TransactionsTable = () => {
         const dataFetch = async () => {
             const transactions = await (
                 await fetch(
-                    `http://localhost:5000/api/transactions/user?user=${currentUser.username}`
+                    `${BASE_URL}/transactions/user?user=${currentUser.username}`
                 )
             ).json();
             setTransactions(transactions);

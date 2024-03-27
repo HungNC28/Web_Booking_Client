@@ -1,22 +1,21 @@
-import "./featured.css";
+// import "./featured.css";
 import useFetch from "../../hook/fetchApi";
-
+import { BASE_URL } from "../../utils/const";
+import styles from "./featured.module.css";
 const Featured = () => {
-    const data = useFetch(
-        "http://localhost:5000/api/hotels/hotel-count-by-city"
-    );
+    const data = useFetch(`${BASE_URL}/hotels/hotel-count-by-city`);
 
     return (
-        <div className="featured">
+        <div className={`${styles["featured"]}`}>
             {data.map((item, index) => {
                 return (
-                    <div key={index} className="featuredItem">
+                    <div key={index} className={styles.featuredItem}>
                         <img
                             src={"/images/" + item.imgUrl}
                             alt=""
-                            className="featuredImg"
+                            className={styles.featuredImg}
                         />
-                        <div className="featuredTitles">
+                        <div className={styles.featuredTitles}>
                             <h1>{item.city}</h1>
                             <h2>{item.amount} properties</h2>
                         </div>
